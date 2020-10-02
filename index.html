@@ -7,6 +7,59 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
     />
+
+ <!-- See https://goo.gl/OOhYW5 -->
+ <link rel="manifest" href="manifest.json" />
+
+ <!-- See https://goo.gl/qRE0vM -->
+ <meta name="theme-color" content="#ffffff" />
+ <!-- Add to homescreen for Chrome on Android. Fallback for manifest.json -->
+ <meta name="mobile-web-app-capable" content="yes" />
+ <meta name="application-name" content="Banner" />
+ <!-- Add to homescreen for Safari on iOS -->
+ <meta name="apple-mobile-web-app-capable" content="yes" />
+ <meta
+   name="apple-mobile-web-app-status-bar-style"
+   content="white-translucent"
+ />
+ <meta name="apple-mobile-web-app-title" content="Banner" />
+ <!-- Homescreen icons -->
+ <link rel="apple-touch-icon" href="icons/icon-48x48.png" />
+ <link rel="apple-touch-icon" sizes="72x72" href="icons/icon-72x72.png" />
+ <link rel="apple-touch-icon" sizes="96x96" href="icons/icon-96x96.png" />
+ <link
+   rel="apple-touch-icon"
+   sizes="144x144"
+   href="icons/icon-144x144.png"
+ />
+ <link
+   rel="apple-touch-icon"
+   sizes="192x192"
+   href="icons/icon-192x192.png"
+ />
+ <!-- Tile icon for Windows 8 (144x144 + tile color) -->
+ <meta name="msapplication-TileImage" content="icons/icon-144x144.png" />
+ <meta name="msapplication-TileColor" content="#ffffff" />
+ <meta name="msapplication-tap-highlight" content="no" />
+
+ <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then(function (registration) {
+          console.log(
+            "ServiceWorker registration successful with scope: ",
+            registration.scope
+          );
+        })
+        .catch(function (err) {
+          console.log("ServiceWorker registration failed: ", err);
+        });
+    });
+  }
+</script>
+
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:400,800&display=swap"
       rel="stylesheet"
@@ -27,18 +80,11 @@
       </div>
       <div class="suggestions">
         <ul class="results" id="results"></ul>
-        <div class="fade left"></div>
+         <div class="fade left"></div>
         <div class="fade right"></div>
       </div>
       <div class="lyrics" id="lyrics"></div>
-      <div class="credits">
-        <h1 class="title-name">
-          <a href="https://ludacris.netlify.com">ludacris</a>
-        </h1>
-        <a target="_blank" href="https://github.com/liyasthomas/ludacris">
-          GitHub
-        </a>
-      </div>
+       
     </div>
     <script
       integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
